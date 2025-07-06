@@ -1,6 +1,6 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import { connectDB } from './config/db.js';
+const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db.js');
 
 dotenv.config();
 
@@ -12,11 +12,11 @@ app.get("/", (req, res) => {
 
 app.get("/tutor", (req, res) => {});
 
-console.log(process.env.MONGO_URI)
+console.log(process.env.MONGO_URI);
 
 app.listen(7001, () => {
     connectDB();
     console.log('Server started at http://localhost:7001');
 });
 
-//mongodb+srv://master:8npRsrG6!At%mkb@adhdcluster1.knhqeu6.mongodb.net/?retryWrites=true&w=majority&appName=ADHDCluster1
+//render endpoint: https://adhdfullstack.onrender.com
