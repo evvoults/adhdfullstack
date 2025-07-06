@@ -1,43 +1,43 @@
 const express = require('express');
 const router = express.Router();
-const Section = require('../models/Section');
+const Prompt = require('../models/Prompt');
 
-// POST νέα ενότητα
+// POST νέο prompt
 router.post('/', async (req, res) => {
   try {
-    const section = new Section(req.body);
-    const saved = await section.save();
+    const prompt = new Prompt(req.body);
+    const saved = await prompt.save();
     res.status(201).json(saved);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 });
 
-// GET όλες οι ενότητες
+// GET όλα τα prompts
 router.get('/', async (req, res) => {
   try {
-    const sections = await Section.find();
-    res.json(sections);
+    const prompts = await Prompt.find();
+    res.json(prompts);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// GET μία ενότητα
+// GET prompt με ID
 router.get('/:id', async (req, res) => {
   try {
-    const section = await Section.findById(req.params.id);
-    if (!section) return res.status(404).json({ error: 'Not found' });
-    res.json(section);
+    const prompt = await Prompt.findById(req.params.id);
+    if (!prompt) return res.status(404).json({ error: 'Not found' });
+    res.json(prompt);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// DELETE ενότητας
+// DELETE prompt
 router.delete('/:id', async (req, res) => {
   try {
-    const deleted = await Section.findByIdAndDelete(req.params.id);
+    const deleted = await Prompt.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Not found' });
     res.json({ message: 'Deleted' });
   } catch (err) {
