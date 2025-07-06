@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Document = require('../models/Document'); // Βεβαιώσου ότι είναι κεφαλαίο "D" αν το αρχείο είναι Document.js
+const Document = require('../models/document'); // Βεβαιώσου ότι είναι κεφαλαίο "D" αν το αρχείο είναι Document.js
 
 // 🔹 POST: Δημιουργία νέου εγγράφου
 router.post('/', async (req, res) => {

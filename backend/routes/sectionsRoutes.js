@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Section = require('../models/Section');
+const Section = require('../models/sections');
 
 // POST νέα ενότητα
 router.post('/', async (req, res) => {
